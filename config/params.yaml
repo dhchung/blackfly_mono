@@ -1,0 +1,5 @@
+camera:
+  serial_num: "23195663" #Camera serial number: usually attached at the bottom of the camera / or visible at spinview
+  frame_rate: 60.0
+  show_image: false
+  image_size_mode: 1 #1: 2048/1024, 2: 1024/512, 3: 512/256
