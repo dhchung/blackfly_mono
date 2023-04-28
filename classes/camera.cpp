@@ -43,9 +43,6 @@ void Camera::set_camera(){
         cam->DeInit();
         cam->Init();
 
-        // cam->LineSelector.SetValue(Spinnaker::LineSelector_Line2);
-        // cam->V3_3Enable.SetValue(true);
-
         cam->AcquisitionMode.SetValue(Spinnaker::AcquisitionMode_Continuous);
 
         if(cam->DecimationVertical.GetValue()!= 2){
