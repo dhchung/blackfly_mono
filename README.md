@@ -23,9 +23,9 @@ Parameters are set in config/params.yaml
 2. frame_rate: Up to 60Hz
 3. show_image: if set true, opencv window will pop up
 4. image_size_mode: 
-   1. 2048/1024 - original image size
-   2. 1024/512
-   3. 512/256
+   1. 2048/1080 - original image size
+   2. 1024/540
+   3. 512/270
 
 Image size may differ if you change the decimation value.
 Image size mode just makes the image size half and quarter for 2 and 3.

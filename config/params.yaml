@@ -1,5 +1,7 @@
 camera:
-  serial_num: "23195663" #Camera serial number: usually attached at the bottom of the camera / or visible at spinview
+  serial_num: "23195662" #Camera serial number: usually attached at the bottom of the camera / or visible at spinview
   frame_rate: 60.0
-  show_image: false
-  image_size_mode: 1 #1: 2048/1024, 2: 1024/512, 3: 512/256
+  show_image: true
+  upsidedown: true
+  image_size_mode: 2 #1: 2048/1080, 2: 1024/540, 3: 512/270
+  image_dir: "/home/morin/mono_calib/"
