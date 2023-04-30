@@ -10,7 +10,7 @@
 #include "camera.h"
 
 int main(int argc, char ** argv) {
-    ros::init(argc, argv, "send_image");
+    ros::init(argc, argv, "blackfly_mono_node");
     ros::NodeHandle nh;
 
     std::string cam_serial;
@@ -25,7 +25,10 @@ int main(int argc, char ** argv) {
     int img_size_mode;
     nh.param<int>("/camera/image_size_mode", img_size_mode, 1);
 
-    Camera cam(cam_serial, frame_rate, show_img, img_size_mode);
+    bool upsidedown;
+    nh.param<bool>("/camera/upsidedown", upsidedown, false);
+
+    Camera cam(cam_serial, frame_rate, show_img, img_size_mode, upsidedown);
 
     image_transport::ImageTransport it(nh);
     image_transport::Publisher pub = it.advertise("camera/image",1 );
@@ -44,7 +47,7 @@ int main(int argc, char ** argv) {
         if(img_ok) {
             header.seq = count;
             header.stamp.fromSec(time);
-
+            
             sensor_msgs::ImagePtr msg = cv_bridge::CvImage(std_msgs::Header(), "bgr8", acquired_image).toImageMsg();
             pub.publish(msg);
 

@@ -1,8 +1,8 @@
 #include "camera.h"
 #include <ros/ros.h>
 
-Camera::Camera(std::string cam_serial_, float frame_rate_, bool show_img_, int img_size_mode_): 
-                cam_serial(cam_serial_), frame_rate(frame_rate_), show_img(show_img_), img_size_mode(img_size_mode_){
+Camera::Camera(std::string cam_serial_, float frame_rate_, bool show_img_, int img_size_mode_, bool upsidedown_): 
+                cam_serial(cam_serial_), frame_rate(frame_rate_), show_img(show_img_), img_size_mode(img_size_mode_), upsidedown(upsidedown_){
     system = Spinnaker::System::GetInstance();
     camera_ready = false;
     cam = nullptr;
@@ -135,6 +135,11 @@ cv::Mat Camera::acquire_image(double & time, bool & img_ok){
     image = imgMat.clone();
 
     img->Release();
+
+    if(upsidedown) {
+        cv::rotate(image, image, cv::ROTATE_180);
+    }
+
     if(show_img) {
         show_image(image);
     }

@@ -7,7 +7,7 @@
 
 class Camera{
 public:
-    Camera(std::string cam_serial_, float frame_rate_, bool show_img_, int img_size_mode_);
+    Camera(std::string cam_serial_, float frame_rate_, bool show_img_, int img_size_mode_, bool upsidedown_);
     ~Camera();
 
 
@@ -19,6 +19,7 @@ private:
     Spinnaker::SystemPtr system;
     bool camera_ready;
     bool show_img;
+    bool upsidedown;
     float frame_rate;
     int img_size_mode;
     std::string cam_serial;
