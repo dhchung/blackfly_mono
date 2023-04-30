@@ -43,3 +43,13 @@ target_link_libraries(${PROJECT_NAME}_node
   ${SPINNAKER_LIBRARIES} 
   ${OpenCV_LIBRARIES}
 )
+
+add_executable(still_image_node src/still_image.cpp
+  ${CLASS_SOURCES}
+)
+
+target_link_libraries(still_image_node
+  ${catkin_LIBRARIES}
+  ${SPINNAKER_LIBRARIES} 
+  ${OpenCV_LIBRARIES}
+)

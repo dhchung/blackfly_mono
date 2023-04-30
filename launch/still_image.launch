@@ -1,0 +1,8 @@
+<launch>
+    <arg name="project" default="blackfly_mono"/>
+    
+    <rosparam file="$(find blackfly_mono)/config/params.yaml" command="load" />
+    <node pkg="$(arg project)" type="still_image_node"   name="still_image_node"    output="screen" 	respawn="true"/>
+    <!-- <include file="$(find blackfly_mono)/launch/include/module_rviz.launch" /> -->
+
+</launch>
